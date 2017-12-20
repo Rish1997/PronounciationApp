@@ -1,14 +1,18 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      PronounceIt
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-row>
+    <ion-item>
+      <ion-input [(ngModel)]="inputSpeech"></ion-input>
+    </ion-item>
+    <ion-buttons>
+        <button ion-button (click)="play(inputSpeech)" >Speak It</button>
+      </ion-buttons>
+  </ion-row>
 </ion-content>

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component} from '@angular/core';
+import { NavController, Platform } from 'ionic-angular';
 import { TextToSpeech } from '@ionic-native/text-to-speech';
 import { SpeechRecognition } from '@ionic-native/speech-recognition';
 
@@ -10,13 +10,14 @@ import { SpeechRecognition } from '@ionic-native/speech-recognition';
 export class HomePage {
   inputSpeech: String;
 
-  constructor(private speechRecognition: SpeechRecognition, private tts: TextToSpeech, public navCtrl: NavController) {
+  constructor(private platform : Platform ,private speechRecognition: SpeechRecognition, private tts: TextToSpeech, public navCtrl: NavController) {
 
   }
 
   ionViewDidLoad() {
-
-    this.speechRecognition.requestPermission()
+    
+    this.platform.ready().then(()=> {
+      this.speechRecognition.requestPermission()
       .then(
       (value : any) => alert(value),
       (reason : any) => alert(reason)
@@ -28,6 +29,8 @@ export class HomePage {
     this.speechRecognition.isRecognitionAvailable()
       .then((available: boolean) => alert(available))
       .catch((reason: any) => alert(reason));
+    })
+
   }
 
   play(text) {

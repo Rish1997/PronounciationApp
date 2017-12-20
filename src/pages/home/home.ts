@@ -27,7 +27,7 @@ export class HomePage {
 
     this.speechRecognition.isRecognitionAvailable()
       .then((available: boolean) => console.log(available))
-      .catch((reason: any) => alert("Some Problem With recognition"));
+      .catch((reason: any) => alert(reason));
   }
 
   play(text) {

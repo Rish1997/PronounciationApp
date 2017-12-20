@@ -18,15 +18,15 @@ export class HomePage {
 
     this.speechRecognition.requestPermission()
       .then(
-      () => console.log('Granted'),
-      () => console.log('Denied')
+      () => alert('Granted'),
+      () => alert('Denied')
       )
 
     this.speechRecognition.hasPermission()
-      .then((hasPermission: boolean) => console.log(hasPermission))
+      .then((hasPermission: boolean) => alert(hasPermission))
 
     this.speechRecognition.isRecognitionAvailable()
-      .then((available: boolean) => console.log(available))
+      .then((available: boolean) => alert(available))
       .catch((reason: any) => alert(reason));
   }
 

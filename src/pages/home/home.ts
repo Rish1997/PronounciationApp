@@ -18,8 +18,8 @@ export class HomePage {
 
     this.speechRecognition.requestPermission()
       .then(
-      () => alert('Granted'),
-      () => alert('Denied')
+      (value : any) => alert(value),
+      (reason : any) => alert(reason)
       )
 
     this.speechRecognition.hasPermission()

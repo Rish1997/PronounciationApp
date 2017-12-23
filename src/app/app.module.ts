@@ -8,7 +8,6 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
 import { TextToSpeech } from '@ionic-native/text-to-speech';
-import { SpeechRecognition } from '@ionic-native/speech-recognition';
 
 @NgModule({
   declarations: [
@@ -28,8 +27,7 @@ import { SpeechRecognition } from '@ionic-native/speech-recognition';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    TextToSpeech,
-    SpeechRecognition
+    TextToSpeech
   ]
 })
 export class AppModule {}

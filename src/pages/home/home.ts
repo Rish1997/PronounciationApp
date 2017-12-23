@@ -1,7 +1,6 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 import { TextToSpeech } from '@ionic-native/text-to-speech';
-import { SpeechRecognition } from '@ionic-native/speech-recognition';
 
 @Component({
   selector: 'page-home',
@@ -9,27 +8,16 @@ import { SpeechRecognition } from '@ionic-native/speech-recognition';
 })
 export class HomePage {
   inputSpeech: String;
-
-  constructor(private platform : Platform ,private speechRecognition: SpeechRecognition, private tts: TextToSpeech, public navCtrl: NavController) {
+  speechRecognition: any;
+  constructor(private platform: Platform, private tts: TextToSpeech, public navCtrl: NavController) {
 
   }
 
   ionViewDidLoad() {
-    
-    this.platform.ready().then(()=> {
-      this.speechRecognition.requestPermission()
-      .then(
-      (value : any) => alert(value),
-      (reason : any) => alert(reason)
-      )
 
-    this.speechRecognition.hasPermission()
-      .then((hasPermission: boolean) => alert(hasPermission))
+    this.platform.ready().then(() => {
 
-    this.speechRecognition.isRecognitionAvailable()
-      .then((available: boolean) => alert(available))
-      .catch((reason: any) => alert(reason));
-    })
+    });
 
   }
 
@@ -46,21 +34,11 @@ export class HomePage {
 
   startListening() {
 
-    this.speechRecognition.startListening()
-      .subscribe(
-      (matches: Array<string>) => { 
-        for(let i of matches){ 
-          this.inputSpeech += i + " ";
-        }
-      },
-      (onerror) => console.log('error:', onerror)
-      )
 
   }
 
   stopListening() {
 
-    this.speechRecognition.stopListening();
 
   }
 

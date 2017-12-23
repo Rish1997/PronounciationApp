@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary" id="navBar">
     <ion-title>
       PronounceIt
     </ion-title>
@@ -7,27 +7,19 @@
 </ion-header>
 
 <ion-content padding>
-    <button ion-button full (click)="getPermission()">Get Permission</button>
-    <button ion-button full (click)="startListening()">Start Listening</button>
-    <button ion-button full (click)="stopListening()" *ngIf="isIos()">Stop Listening</button>
+  <ion-card padding class="ion-card-round-corners">
+    <ion-row no-lines>
+      <ion-input id="inputField" [(ngModel)]="inputSpeech" placeholder="Write a word to know its pronounciation" (ionChange)="inputChanged()"></ion-input>
+    </ion-row>
+    <ion-row>
+      <!-- <ion-buttons> -->
+      <ion-col>
+        <button id="useButton" ion-button full color="secondary" (click)="play(inputSpeech)">Speak It</button>
+      </ion-col>
+      <ion-col>
+        <button id="useButton" ion-button full color="secondary" *ngIf="pronounceButton" (click)="practiceIt(inputSpeech)">Practice to Pronounciate</button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 
-    <ion-card>
-        <ion-card-header>This is what I understood...</ion-card-header>
-        <ion-card-content>
-          <ion-list>
-            <ion-item *ngFor="let match of matches">
-              {{ match }}
-            </ion-item>
-          </ion-list>
-        </ion-card-content>
-      </ion-card>
-  <ion-row>
-    <ion-item>
-      <ion-input [(ngModel)]="inputSpeech"></ion-input>
-    </ion-item>
-    <ion-buttons>
-        <button ion-button (click)="play(inputSpeech)" >Speak It</button>
-        <button ion-button (click)="startListening()"> Start to listen</button>
-      </ion-buttons>
-  </ion-row>
 </ion-content>

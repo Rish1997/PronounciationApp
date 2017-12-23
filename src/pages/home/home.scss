@@ -1,3 +1,35 @@
 page-home {
 
+    ion-content{
+
+        background-color: #5de3ec;
+
+        ion-input{
+            border-color: black;
+            -moz-border-radius: 50px;
+            -webkit-border-radius: 50px;
+            border-radius: 10px;
+            margin-bottom: 10px; 
+        }
+
+        #inputField{
+            border-color: black;
+            -moz-border-radius: 50px;
+            -webkit-border-radius: 50px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        #content{
+            margin-left:auto; 
+            margin-right: auto; 
+        }
+
+        #useButton{
+            margin-left:auto; 
+            margin-right: auto; 
+        }
+
+    }
+
 }

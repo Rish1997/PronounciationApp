@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { PractivePronouncePage } from './../pages/practive-pronounce/practive-pronounce';
 
 import { TextToSpeech } from '@ionic-native/text-to-speech';
 import { SpeechRecognition } from '@ionic-native/speech-recognition';
@@ -13,7 +14,8 @@ import { SpeechRecognition } from '@ionic-native/speech-recognition';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    PractivePronouncePage
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,8 @@ import { SpeechRecognition } from '@ionic-native/speech-recognition';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    PractivePronouncePage
   ],
   providers: [
     StatusBar,

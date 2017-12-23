@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar color="primary" id="navBar">
+    <ion-title>Practice It</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div>
+    <ion-row>
+        <H1>Pronounce It : {{word}} </H1>
+        <H1 *ngIf="isPerfectPronounciation" id="perfectText"> PERFECT!!</H1>
+    </ion-row>
+  </div>
+  <br>
+
+  <button ion-button full (click)="startListening()">Try to Pronounce</button>
+  <br>
+
+    <ion-card *ngIf="matchLenShow">
+        <ion-card-header id="cardHeader" >This is what I understood...</ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <div tappable *ngFor="let match of matches">
+              <button ion-item color="secondary" (click)="compareIt(match)"> {{match}} <ion-icon name="arrow-forward" item-right></ion-icon> </button>
+            </div>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+
+</ion-content>

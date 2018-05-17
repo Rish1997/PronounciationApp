@@ -3,13 +3,18 @@
     <ion-title>
       PronounceIt
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="showOptions($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <ion-card padding class="ion-card-round-corners">
     <ion-row no-lines>
-      <ion-input id="inputField" [(ngModel)]="inputSpeech" placeholder="Write a word to know its pronounciation" (ionChange)="inputChanged()"></ion-input>
+      <ion-input id="inputField" autofocus [(ngModel)]="inputSpeech" placeholder="Write a word to know its pronounciation" (ionChange)="inputChanged()"></ion-input>
     </ion-row>
     <ion-row>
       <!-- <ion-buttons> -->
@@ -21,5 +26,13 @@
       </ion-col>
     </ion-row>
   </ion-card>
+
+  <ion-list text-wrap>
+    <div text-wrap *ngFor="let word of savedWords">
+      <button ion-button (click)="savedWordClicked(word)">
+        {{word}}
+      </button>
+    </div>
+  </ion-list>
 
 </ion-content>
